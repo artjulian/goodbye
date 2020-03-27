@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link href='https://fonts.googleapis.com/css?family=Arvo:700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:300,100' rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        /* NO BEM BITCHES */
+        @keyframes heartbeat
+        {
+            0%
+            {
+                transform: scale( .75 );
+            }
+            20%
+            {
+                transform: scale( 1 );
+            }
+            40%
+            {
+                transform: scale( .75 );
+            }
+            60%
+            {
+                transform: scale( 1 );
+            }
+            80%
+            {
+                transform: scale( .75 );
+            }
+            100%
+            {
+                transform: scale( .75 );
+            }
+        }
+
+        *{
+            box-sizing: border-box;
+        }
+        html, body{
+            background: #000;
+        }
+
+        body{
+            background: black;
+        }
+
+        span{
+            margin: 0;
+            padding: 0;
+        }
+
+        h1{
+            font-family: 'Arvo', serif;
+            color:white;
+            font-size: 3.2em;
+            text-transform: uppercase;
+            margin:25vh 0 0 0;
+            text-align: center;
+
+            opacity: 1; 
+            transform: translateY(0px);
+            transition: 1s opacity, 1s transform;
+        }
+        h1.hide{
+            opacity: 0; 
+            transform: translateY(-200px);
+        }
+
+        .outline{
+            -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: white;
+        }
+        .heart{
+            font-family: 'Raleway', sans-serif;
+            font-weight: 400;
+            display: block;
+            font-size: 128px;
+            margin:0;
+            text-align: center;
+
+            opacity: 0; 
+            transition: 2s opacity;
+            animation: heartbeat 1s infinite; 
+        }
+
+        .heart.show{
+            opacity: 1;
+        }
+
+        .heart.show + video{
+            display: none;
+        }
+        
+        .heart span{
+            color: black;
+            display: inline-block;
+            text-align: center;
+            border-radius: 50%;
+            text-shadow: 0 0 15px #900000, 1px 1px 15px #900000, 2px 2px 15px #900000, -1px -1px 15px #900000, -2px -2px 15px #900000;
+        }
+
+        video{
+            margin:0 auto;
+            width: 800px;
+            display: block;
+            opacity: 0; 
+            transform: translateY(200px);
+            transition: 1s opacity, 1s transform;
+        }
+
+        video.show{
+            opacity: 1;
+            transform: translateY(-300px);
+        }
+        video.hide{
+            opacity: 0;
+            transform: translateY(-1000px);
+        }
+    </style>
+    <body>
+        <h1 id="title">Thanks <span class="outline end-right">DEPT</span></h1>
+        <p id="heart" class="heart"><span>&#9829;</span></p>
+        <video id="whoCaresAboutThisIdConventionAdrian">
+            <source src="bye.mp4" type="video/mp4">
+            Sorry, your browser doesn't support embedded videos.
+        </video>
+
+        <script type="text/javascript">
+            window.scrollTo(0, 0);
+            setTimeout(function(){
+                document.getElementById('title').className += "hide";
+                document.getElementById('whoCaresAboutThisIdConventionAdrian').className += "show";
+                setTimeout(function(){
+                    document.getElementById("whoCaresAboutThisIdConventionAdrian").play();
+                    setTimeout(function(){
+                        document.getElementById('heart').className += " show";
+                    }, 3000);
+                }, 500);
+            }, 1500);
+        </script>
+    </body>
+</html>
