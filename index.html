@@ -79,7 +79,7 @@
             margin:0;
             text-align: center;
 
-            opacity: 1; 
+            opacity: 0; 
             transition: 2s opacity;
         }
 
@@ -88,10 +88,10 @@
             animation: heartbeat 1s infinite; 
         }
 
-        .heart.show + .monkey-proofing {
+        /* .heart.show + .monkey-proofing {
             display: none;
-        }
-        .heart.show + .monkey-proofing + video{
+        } */
+        .heart.show  + video{
             display: none;
         }
         
@@ -109,7 +109,7 @@
             display: block;
             opacity: 0; 
             transform: translateY(100px);
-            transition: 0.3s opacity, 1s transform;
+            transition: 1s opacity, 1s transform;
         }
 
         video.show{
@@ -121,7 +121,7 @@
             transform: translateY(-1000px);
         }
 
-        .monkey-proofing{
+        /* .monkey-proofing{
             color:#969696;
             font-family: 'Arvo', serif;
             text-align: center;
@@ -130,14 +130,14 @@
         .monkey-proofing.show{
             opacity: 1;
             transition: 0.3s opacity;
-        }
+        } */
     </style>
     <link rel="shortcut icon" href="tuurtje.png">
     <body>
         <h1 id="title">Thanks <span class="outline end-right">DEPT</span></h1>
         <p id="heart" class="heart"><span>&#9829;</span></p>
-        <p id="monkey-proofing" class="monkey-proofing">(psst, click on the heart)</p>
-        <video id="whoCaresAboutThisIdConventionAdrian" playsinline>
+        <!-- <p id="monkey-proofing" class="monkey-proofing">(psst, click on the heart)</p> -->
+        <video id="whoCaresAboutThisIdConventionAdrian" playsinline autoplay>
             <source src="bye.mp4" type="video/mp4">
             Sorry, your browser doesn't support embedded videos.
         </video>
@@ -146,18 +146,19 @@
             window.scrollTo(0, 0);
 
             const heart = document.getElementById('heart');
-            heart.addEventListener('click', function(){
+            // heart.addEventListener('click', function(){
+            setTimeout(function(){
                 document.getElementById('title').className += "hide";
                 document.getElementById('whoCaresAboutThisIdConventionAdrian').className += " show";
-                document.getElementById("whoCaresAboutThisIdConventionAdrian").play();
+                // document.getElementById("whoCaresAboutThisIdConventionAdrian").play();
                 setTimeout(function(){
                     document.getElementById('heart').className += " show";
                 }, 4500);
-            });
+            }, 2500);
             
-            setTimeout(function(){
-                document.getElementById('monkey-proofing').className += " show";
-            }, 2500); 
+            // setTimeout(function(){
+            //     document.getElementById('monkey-proofing').className += " show";
+            // }, 2500); 
         </script>
     </body>
 </html>
