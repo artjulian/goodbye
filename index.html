@@ -79,13 +79,13 @@
             margin:0;
             text-align: center;
 
-            opacity: 0; 
+            opacity: 1; 
             transition: 2s opacity;
-            animation: heartbeat 1s infinite; 
         }
 
         .heart.show{
             opacity: 1;
+            animation: heartbeat 1s infinite; 
         }
 
         .heart.show + video{
@@ -105,8 +105,8 @@
             width: 800px;
             display: block;
             opacity: 0; 
-            transform: translateY(200px);
-            transition: 1s opacity, 1s transform;
+            transform: translateY(100px);
+            transition: 0.3s opacity, 1s transform;
         }
 
         video.show{
@@ -129,16 +129,18 @@
 
         <script type="text/javascript">
             window.scrollTo(0, 0);
-            setTimeout(function(){
+
+            const heart = document.getElementById('heart');
+            heart.addEventListener('click', function(){
                 document.getElementById('title').className += "hide";
-                document.getElementById('whoCaresAboutThisIdConventionAdrian').className += "show";
+                document.getElementById('whoCaresAboutThisIdConventionAdrian').className += " show";
+                document.getElementById("whoCaresAboutThisIdConventionAdrian").play();
                 setTimeout(function(){
-                    document.getElementById("whoCaresAboutThisIdConventionAdrian").play();
-                    setTimeout(function(){
-                        document.getElementById('heart').className += " show";
-                    }, 3000);
-                }, 500);
-            }, 1500);
+                    document.getElementById('heart').className += " show";
+                }, 3500);
+            });
+            
+                    
         </script>
     </body>
 </html>
