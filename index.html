@@ -88,7 +88,10 @@
             animation: heartbeat 1s infinite; 
         }
 
-        .heart.show + video{
+        .heart.show + .monkey-proofing {
+            display: none;
+        }
+        .heart.show + .monkey-proofing + video{
             display: none;
         }
         
@@ -117,11 +120,23 @@
             opacity: 0;
             transform: translateY(-1000px);
         }
+
+        .monkey-proofing{
+            color:#969696;
+            font-family: 'Arvo', serif;
+            text-align: center;
+            opacity: 0;
+        }
+        .monkey-proofing.show{
+            opacity: 1;
+            transition: 0.3s opacity;
+        }
     </style>
     <link rel="shortcut icon" href="tuurtje.png">
     <body>
         <h1 id="title">Thanks <span class="outline end-right">DEPT</span></h1>
         <p id="heart" class="heart"><span>&#9829;</span></p>
+        <p id="monkey-proofing" class="monkey-proofing">(psst, click on the heart)</p>
         <video id="whoCaresAboutThisIdConventionAdrian" playsinline>
             <source src="bye.mp4" type="video/mp4">
             Sorry, your browser doesn't support embedded videos.
@@ -140,7 +155,9 @@
                 }, 4500);
             });
             
-                    
+            setTimeout(function(){
+                document.getElementById('monkey-proofing').className += " show";
+            }, 2500); 
         </script>
     </body>
 </html>
